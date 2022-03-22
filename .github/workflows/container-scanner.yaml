@@ -1,0 +1,22 @@
+name: "container-scanner"
+
+on:
+  push:
+    # Publish `main` as Docker `latest` image.
+    branches:
+      - main
+
+    # Publish `v1.2.3` tags as releases.
+    tags:
+      - v*
+
+jobs:
+  # Push image to GitHub Packages.
+  # See also https://docs.docker.com/docker-hub/builds/
+  build-tag-push-container:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - uses: Azure/container-scan@v0.1
+        with:
+          image-name: besu-all-in-one-publish
