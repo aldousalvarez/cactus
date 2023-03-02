@@ -194,6 +194,7 @@
     ],
     "esModuleInterop": true,
     "inlineSourceMap": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "useUnknownInCatchVariables": false
   }
 }
