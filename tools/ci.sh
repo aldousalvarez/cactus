@@ -108,24 +108,25 @@ function mainTask()
   # install npm 7 globally - needed because Node v12, v14 default to npm v6
   npm install -g npm@7.19.1
   npm --version
+  yarn install
   yarn --version
 
   ### COMMON
   cd $PROJECT_ROOT_DIR
 
-  if [ "${DEV_BUILD_DISABLED:-false}" = "true" ]; then
-    echo "$(date +%FT%T%z) [CI] Dev build disabled. Skipping..."
+if [ "${CONFIGURE_DISABLED:-false}" = "true" ]; then
+    echo "$(date +%FT%T%z) [CI] npm run configure disabled. Skipping..."
   else
-    yarn configure
+    npm run configure
   fi
 
-  if [ "${YARN_TOOLS_VALIDATE_BUNDLE_NAMES_DISABLED:-false}" = "true" ]; then
+  if [ "${TOOLS_VALIDATE_BUNDLE_NAMES_DISABLED:-false}" = "true" ]; then
     echo "$(date +%FT%T%z) [CI] yarn tools:validate-bundle-names disabled. Skipping..."
   else
     yarn tools:validate-bundle-names
   fi
 
-  if [ "${YARN_CUSTOM_CHECKS_DISABLED:-false}" = "true" ]; then
+  if [ "${CUSTOM_CHECKS_DISABLED:-false}" = "true" ]; then
     echo "$(date +%FT%T%z) [CI] yarn custom-checks disabled. Skipping..."
   else
     yarn custom-checks

@@ -99,8 +99,6 @@ The `npm run watch` script in action:
     nvm install 16.14.2
     nvm use 16.14.2
     ```
-  * Yarn
-    * `npm run install-yarn` (from within the project directory)
   * [Docker Engine](https://docs.docker.com/engine/install/ubuntu/). Make sure that Docker is working and running, for example, running ``docker ps -aq``
   * Docker Compose
   * OpenJDK (Corda support Java 8 JDK but do not currently support Java 9 or higher)
@@ -133,6 +131,12 @@ cd cactus
 
 ```sh
 npm run enable-corepack
+```
+
+* Run this command to migrate lockfile (Also, run this everytime you have changes before running `yarn run cofugure`)
+
+```sh
+yarn install
 ```
 
 * Run the initial configuration script (can take a long time, 10+ minutes on a low-spec laptop)
