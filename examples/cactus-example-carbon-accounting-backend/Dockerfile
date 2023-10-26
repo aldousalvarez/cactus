@@ -43,7 +43,7 @@ RUN source ~/.bashrc && \
 SHELL ["/bin/bash", "--login", "-c"]
 
 
-COPY --chown=${APP_USER}:${APP_USER} ./examples/supply-chain-app/healthcheck.sh /
+COPY --chown=${APP_USER}:${APP_USER} ./examples/cactus-example-carbon-accounting-backend/healthcheck.sh /
 
 ENV AUTHORIZATION_CONFIG_JSON="{}"
 ENV AUTHORIZATION_PROTOCOL=NONE
@@ -67,7 +67,7 @@ ENV API_PORT=4000
 ENV GRPC_TLS_ENABLED=false
 ENV LOG_LEVEL=TRACE
 
-COPY examples/supply-chain-app/supervisord.conf /etc/supervisord.conf
+COPY examples/cactus-example-carbon-accounting-backend/supervisord.conf /etc/supervisord.conf
 
 # supervisord web ui/dashboard
 EXPOSE 9001

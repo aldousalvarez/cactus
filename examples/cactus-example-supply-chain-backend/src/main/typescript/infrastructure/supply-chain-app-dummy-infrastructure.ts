@@ -113,7 +113,7 @@ export class SupplyChainAppDummyInfrastructure {
     });
     this.fabric = new FabricTestLedgerV1({
       publishAllPorts: true,
-      imageName: "ghcr.io/hyperledger/cactus-fabric-all-in-one",
+      imageName: "ghcr.io/hyperledger/cactus-fabric2-all-in-one",
       logLevel: level,
       emitContainerLogs: true,
     });
@@ -297,7 +297,7 @@ export class SupplyChainAppDummyInfrastructure {
             "github.com/fsouza/go-dockerclient@v1.6.5",
             "github.com/grpc-ecosystem/go-grpc-middleware@v1.2.1",
             "github.com/hashicorp/go-version@v1.2.1",
-            "github.com/hyperledger/fabric@v1.4.8",
+            "github.com/hyperledger/fabric@v2.4.4",
             "github.com/hyperledger/fabric-amcl@v0.0.0-20200424173818-327c9e2cf77a",
             "github.com/miekg/pkcs11@v1.0.3",
             "github.com/mitchellh/mapstructure@v1.3.3",

@@ -87,9 +87,9 @@ export const DEFAULT_FABRIC_2_AIO_FABRIC_VERSION = "2.4.4";
  * Provides default options for Fabric container
  */
 const DEFAULT_OPTS = Object.freeze({
-  imageName: "ghcr.io/hyperledger/cactus-fabric-all-in-one",
-  imageVersion: "v1.0.0-rc.2",
-  envVars: new Map([["FABRIC_VERSION", "1.4.8"]]),
+  imageName: "ghcr.io/hyperledger/cactus-fabric2-all-in-one",
+  imageVersion: "2023-10-26-5185968",
+  envVars: new Map([["FABRIC_VERSION", "2.4.4"]]),
   stateDatabase: STATE_DATABASE.COUCH_DB,
   orgList: ["org1", "org2"],
 });

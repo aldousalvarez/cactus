@@ -7037,6 +7037,8 @@ __metadata:
     "@hyperledger/cactus-core": 2.0.0-alpha.2
     "@hyperledger/cactus-core-api": 2.0.0-alpha.2
     "@hyperledger/cactus-example-carbon-accounting-business-logic-plugin": 2.0.0-alpha.2
+    "@hyperledger/cactus-example-supply-chain-backend": 2.0.0-alpha.2
+    "@hyperledger/cactus-example-supply-chain-frontend": 2.0.0-alpha.2
     "@hyperledger/cactus-plugin-keychain-memory": 2.0.0-alpha.2
     "@hyperledger/cactus-plugin-ledger-connector-fabric": 2.0.0-alpha.2
     "@hyperledger/cactus-plugin-ledger-connector-xdai": 2.0.0-alpha.2
@@ -7048,6 +7050,7 @@ __metadata:
     "@types/json-stable-stringify": 1.0.34
     "@types/uuid": 8.3.4
     async-exit-hook: 2.0.1
+    dotenv: 8.2.0
     express-jwt: 8.4.1
     fabric-network: 2.2.19
     fs-extra: 10.1.0
@@ -7261,7 +7264,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@hyperledger/cactus-example-supply-chain-backend@workspace:examples/cactus-example-supply-chain-backend":
+"@hyperledger/cactus-example-supply-chain-backend@2.0.0-alpha.2, @hyperledger/cactus-example-supply-chain-backend@workspace:examples/cactus-example-supply-chain-backend":
   version: 0.0.0-use.local
   resolution: "@hyperledger/cactus-example-supply-chain-backend@workspace:examples/cactus-example-supply-chain-backend"
   dependencies:
@@ -21618,6 +21621,13 @@ __metadata:
   version: 16.3.1
   resolution: "dotenv@npm:16.3.1"
   checksum: 15d75e7279018f4bafd0ee9706593dd14455ddb71b3bcba9c52574460b7ccaf67d5cf8b2c08a5af1a9da6db36c956a04a1192b101ee102a3e0cf8817bbcf3dfd
+  languageName: node
+  linkType: hard
+
+"dotenv@npm:8.2.0":
+  version: 8.2.0
+  resolution: "dotenv@npm:8.2.0"
+  checksum: ad4c8e0df3e24b4811c8e93377d048a10a9b213dcd9f062483b4a2d3168f08f10ec9c618c23f5639060d230ccdb174c08761479e9baa29610aa978e1ee66df76
   languageName: node
   linkType: hard
 
