@@ -1,7 +1,7 @@
-FROM hyperledger/iroha:1.4.0-patch-3
+FROM hyperledger/iroha:1.6.0-hotfix-3
 
-ARG DEBIAN_FRONTEND=noninteractive  
-RUN set -e && apt-get update && \   
+ARG DEBIAN_FRONTEND=noninteractive
+RUN set -e && apt-get update && \
     apt-get install -y moreutils jq wget python3 python3-pip && \
     pip install iroha && \
     apt-get purge -y `apt-get -s purge python3-pip | grep '^ ' | tr -d '*'` && \

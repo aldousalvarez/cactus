@@ -1,0 +1,64 @@
+name: trivy-container-image-scan
+
+on:
+  push:
+  pull_request:
+    branches:
+      - main
+    tags:
+      - v*
+
+jobs:
+
+  check_trivy_condition:
+    name: Check Trivy Condition
+    runs-on: ubuntu-20.04
+    outputs:
+      run_trivy_scan: ${{ steps.set_condition_trivy_scan.outputs.run_trivy_scan }}
+    steps:
+      - name: Set Trivy Condition for cactus-example-carbon-accounting
+        id: set_condition_trivy_scan
+        run: echo "::set-output name=run_trivy_scan::true"  # Set your condition for cactus-example-carbon-accounting here
+
+  build:
+    name: Scan cactus-example-carbon-accounting table image
+    runs-on: ubuntu-20.04
+    needs:
+      - check_trivy_condition
+    if: ${{ needs.check_trivy_condition.outputs.run_trivy_scan == 'true' }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Build an image from Dockerfile
+        run: DOCKER_BUILDKIT=1 docker build . -f ./examples/carbon-accounting/Dockerfile -t cactus-example-carbon-accounting
+      - name: Run Trivy vulnerability scan for cactus-example-carbon-accounting
+        uses: aquasecurity/trivy-action@0.11.2
+        with:
+          image-ref: 'cactus-example-carbon-accounting'
+          format: 'table'
+          exit-code: '0'
+          ignore-unfixed: true
+          vuln-type: 'os,library'
+          severity: 'CRITICAL,HIGH'
+
+  build2:
+    name: Scan cactus-connector-besu json image
+    runs-on: ubuntu-20.04
+    needs:
+      - check_trivy_condition
+    if: ${{ needs.check_trivy_condition.outputs.run_trivy_scan == 'false' }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Build an image from Dockerfile
+        run: |
+          DOCKER_BUILDKIT=1 docker build ./packages/cactus-plugin-ledger-connector-besu/ -f ./packages/cactus-plugin-ledger-connector-besu/Dockerfile -t cactus-plugin-besu
+      - name: Run Trivy vulnerability scanner
+        uses: aquasecurity/trivy-action@0.11.2
+        with:
+          image-ref: 'cactus-plugin-besu'
+          format: 'table'
+          exit-code: '0'
+          ignore-unfixed: false
+          vuln-type: 'os,library'
+          severity: 'CRITICAL,HIGH'

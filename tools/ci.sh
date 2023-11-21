@@ -147,7 +147,7 @@ function mainTask()
   if [ "${JEST_TEST_RUNNER_DISABLED:-false}" = "true" ]; then
     echo "$(date +%FT%T%z) [CI] Jest test runner disabled. Skipping..."
   else
-    yarn test:jest:all $JEST_TEST_PATTERN
+    yarn test:jest:all $JEST_TEST_PATTERN --coverage $JEST_CODE_COVERAGE_FOLDER
   fi
 
   if [ "${DUMP_DISK_USAGE_INFO_DISABLED:-true}" = "true" ]; then
