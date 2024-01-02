@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../../../images/HL_Cacti_Logo_Colorreverse.svg">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.2">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.3">
     
     
       
@@ -4147,7 +4147,9 @@
 <li>Node.js and NPM: <a href="https://nodejs.org/en/download/package-manager/">sample instructions</a> (Version 16 Supported)</li>
 <li>Yarn: <a href="https://classic.yarnpkg.com/en/docs/install/">sample instructions</a></li>
 <li>Rust: <a href="https://www.rust-lang.org/tools/install">sample instructions</a></li>
-<li>Protoc (Protobuf compiler): <em>Golang should already be installed and configured.</em><ul>
+<li>
+<p>Protoc (Protobuf compiler): <em>Golang should already be installed and configured.</em></p>
+<ul>
 <li>Default method: Run the following with <code>sudo</code> if necessary. This will install both the protobuf compiler and the Go code generator plugins.
   <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>apt-get install protobuf-compiler
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>go install google.golang.org/protobuf/cmd/protoc-gen-go
@@ -4161,11 +4163,20 @@
 <a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>export PATH=&quot;$PATH:&lt;some-folder-path&gt;/bin&quot;
 <a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>go install google.golang.org/protobuf/cmd/protoc-gen-go
 <a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>go install google.golang.org/grpc/cmd/protoc-gen-go-grpc
-</code></pre></div>
-  | Notes |
-  |:------|
-  | The latest version at present is <code>3.15.6</code>, but you should check the above link to find the most current version before running the above steps. |</li>
+</code></pre></div></li>
 </ul>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">The latest version at present is <code>3.15.6</code>, but you should check the above link to find the most current version before running the above steps.</td>
+</tr>
+</tbody>
+</table>
 </li>
 </ul>
 <h3 id="credentials">Credentials<a class="headerlink" href="#credentials" title="Permanent link">&para;</a></h3>
