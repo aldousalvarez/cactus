@@ -16,6 +16,16 @@ jobs:
       - name: Get the output response
         run: echo "${{ steps.lint-git-repo.outputs.lint-git-repo-response }}"
 
+  check_trivy_condition:
+    name: Check Trivy Condition
+    runs-on: ubuntu-20.04
+    outputs:
+      run_trivy_scan: ${{ steps.set_condition_trivy_scan.outputs.run_trivy_scan }}
+    steps:
+      - name: Set Trivy Condition for cactus-example-carbon-accounting
+        id: set_condition_trivy_scan
+        run: echo "::set-output name=run_trivy_scan::true"  # Set your condition for cactus-example-carbon-accounting here
+
   compute_changed_packages:
     outputs:
       cmd-api-server-changed: ${{ steps.changes.outputs.cmd-api-server-changed }}
@@ -684,6 +694,7 @@ jobs:
       JEST_TEST_PATTERN: packages/cactus-plugin-consortium-manual/src/test/typescript/(unit|integration|benchmark)/.*/*.test.ts
       JEST_TEST_RUNNER_DISABLED: false
       TAPE_TEST_RUNNER_DISABLED: true
+      JEST_CODE_COVERAGE_FOLDER: ./code-coverage-ts/cactus-plugin-consortium-manual
     needs: build-dev
     runs-on: ubuntu-20.04
     steps:
@@ -2053,6 +2064,9 @@ jobs:
       - run: ./tools/ci.sh
   ghcr-besu-all-in-one:
     runs-on: ubuntu-20.04
+    needs:
+      - check_trivy_condition
+    if: needs.check_trivy_condition.outputs.run_trivy_scan == 'true'
     steps:
       - uses: actions/checkout@v3.5.2
       - name: ghcr.io/hyperledger/cactus-besu-all-in-one
@@ -2070,7 +2084,8 @@ jobs:
     runs-on: ubuntu-20.04
     needs:
       - compute_changed_packages
-    if: needs.compute_changed_packages.outputs.cmd-api-server-changed == 'true'
+      - check_trivy_condition
+    if: needs.compute_changed_packages.outputs.cmd-api-server-changed == 'true' || needs.check_trivy_condition.outputs.run_trivy_scan == 'true'
     steps:
       - uses: actions/checkout@v3.5.2
       - name: ghcr.io/hyperledger/cactus-cmd-api-server
