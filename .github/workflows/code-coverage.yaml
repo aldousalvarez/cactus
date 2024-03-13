@@ -1,0 +1,68 @@
+name: code-coverage
+
+on: 
+  push:
+    # Publish `main` as Docker `latest` image.
+    branches:
+      - code-coverage
+      - main
+
+    # Publish `v1.2.3` tags as releases.
+    tags:
+      - v*
+env:
+  NODEJS_VERSION: v20.11.1
+jobs:
+  run_tests:
+    runs-on: ubuntu-22.04
+    steps:
+
+      - name: Use Node.js ${{ env.NODEJS_VERSION }}
+        uses: actions/setup-node@v4.0.2
+        with:
+          node-version: ${{ env.NODEJS_VERSION }}
+      - uses: actions/checkout@v4.1.1
+      - id: yarn-cache
+        name: Restore Yarn Cache
+        uses: actions/cache@v4.0.1
+        with:
+          key: ${{ runner.os }}-yarn-${{ hashFiles('./yarn.lock') }}
+          path: ./.yarn/
+          restore-keys: |
+            ${{ runner.os }}-yarn-${{ hashFiles('./yarn.lock') }}
+
+      - name: Install istanbul-merge
+        run: yarn add istanbul-merge --dev
+
+      - name: Run Configure
+        run: npm run configure
+
+      - name: Run tests and generate coverage reports
+        continue-on-error: true
+        run: |
+         yarn jest --testPathPattern="packages/cactus-api-client/src/test/typescript/(unit|integration|benchmark)/.*/*.test.ts" --coverage --coverageDirectory=./code-coverage-ts/cactus-api-client || true
+         yarn jest --testPathPattern="packages/cactus-cmd-api-server/src/test/typescript/(unit|integration|benchmark)/.*/*.test.ts" --coverage --coverageDirectory=./code-coverage-ts/cactus-cmd-api-server || true
+         yarn jest --testPathPattern="packages/cactus-cmd-socketio-server/src/test/typescript/(unit|integration|benchmark)/.*/*.test.ts" --coverage --coverageDirectory=./code-coverage-ts/cactus-cmd-socketio-server || true
+         yarn jest --testPathPattern="packages/cactus-common/src/test/typescript/(unit|integration|benchmark)/.*/*.test.ts" --coverage --coverageDirectory=./code-coverage-ts/cactus-common || true
+         yarn jest --testPathPattern="packages/cactus-core/src/test/typescript/(unit|integration|benchmark)/.*/*.test.ts" --coverage --coverageDirectory=./code-coverage-ts/cactus-core || true
+         yarn jest --testPathPattern="packages/cactus-core-api/src/test/typescript/(unit|integration|benchmark)/.*/*.test.ts" --coverage --coverageDirectory=./code-coverage-ts/cactus-core-api || true
+         yarn jest --testPathPattern="examples/cactus-example-carbon-accounting-backend/src/test/typescript/(unit|integration|benchmark)/.*/*.test.ts" --coverage --coverageDirectory=./code-coverage-ts/cactus-example-carbon-accounting-backend || true
+         yarn jest --testPathPattern="examples/cactus-example-carbon-accounting-business-logic-plugin/src/test/typescript/(unit|integration|benchmark)/.*/*.test.ts" --coverage --coverageDirectory=./code-coverage-ts/cactus-example-carbon-accounting-business-logic-plugin || true
+        
+      - name: Merge coverage reports
+        run: npx istanbul-merge --out coverage.json ./code-coverage-ts/*/coverage-final.json
+
+      - name: Generate HTML report
+        run: npx istanbul report --include coverage.json --dir cacti html
+
+      - name: Output text report
+        run: npx istanbul report --include coverage.json --dir cacti text
+
+      - name: Output text-lcov report
+        run: npx istanbul report --include coverage.json --dir cacti text-lcov
+
+      - name: Output text-summary report
+        run: npx istanbul report --include coverage.json --dir cacti text-summary
+
+
+
