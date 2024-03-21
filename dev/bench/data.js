@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1710399781067,
+  "lastUpdate": 1710999432478,
   "repoUrl": "https://github.com/aldousalvarez/cactus",
   "entries": {
     "Benchmark": [
@@ -38,6 +38,44 @@ window.BENCHMARK_DATA = {
             "range": "±1.38%",
             "unit": "ops/sec",
             "extra": "182 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "tomasz.awramski@fujitsu.com",
+            "name": "Tomasz Awramski",
+            "username": "rwat17"
+          },
+          "committer": {
+            "email": "petermetz@users.noreply.github.com",
+            "name": "Peter Somogyvari",
+            "username": "petermetz"
+          },
+          "distinct": true,
+          "id": "e42cac7de0fff333fd032073b89075b06823c5c2",
+          "message": "refactor(gui): gui structure change to make adding more ledgers easier\n- change folder structure\n- each ledger-plugin now has separate folder and configuration\n- added status page for available plugins\n\nSigned-off-by: Tomasz Awramski <tomasz.awramski@fujitsu.com>",
+          "timestamp": "2024-03-20T06:25:00-07:00",
+          "tree_id": "a06d9140b30341d4b2f5397c2a14d54650508633",
+          "url": "https://github.com/aldousalvarez/cactus/commit/e42cac7de0fff333fd032073b89075b06823c5c2"
+        },
+        "date": 1710999430344,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "cmd-api-server_HTTP_GET_getOpenApiSpecV1",
+            "value": 600,
+            "range": "±1.62%",
+            "unit": "ops/sec",
+            "extra": "178 samples"
+          },
+          {
+            "name": "cmd-api-server_gRPC_GetOpenApiSpecV1",
+            "value": 377,
+            "range": "±1.14%",
+            "unit": "ops/sec",
+            "extra": "183 samples"
           }
         ]
       }
