@@ -5,7 +5,7 @@ SHELL ["/bin/bash", "-c"]
 ARG APP=/usr/src/app/
 ENV APP_USER=appuser
 
-# GUI: 3000, API: 4000, gRPC 5000
+# GUI: 3000, API: 4000, gRPC 50008
 EXPOSE 3000 4000 5000
 
 RUN groupadd --gid 1000 appuser \
