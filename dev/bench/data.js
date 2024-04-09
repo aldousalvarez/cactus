@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1712303304877,
+  "lastUpdate": 1712642324569,
   "repoUrl": "https://github.com/aldousalvarez/cactus",
   "entries": {
     "Benchmark": [
@@ -74,6 +74,44 @@ window.BENCHMARK_DATA = {
             "name": "cmd-api-server_gRPC_GetOpenApiSpecV1",
             "value": 365,
             "range": "±1.19%",
+            "unit": "ops/sec",
+            "extra": "181 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "peter.somogyvari@accenture.com",
+            "name": "Peter Somogyvari",
+            "username": "petermetz"
+          },
+          "committer": {
+            "email": "petermetz@users.noreply.github.com",
+            "name": "Peter Somogyvari",
+            "username": "petermetz"
+          },
+          "distinct": true,
+          "id": "383f8528d88989b44c9763fc883c3d9ac74da21e",
+          "message": "feat(core): add configureExpressAppBase() utility function\n\n1. The idea here is to re-use the common basic tasks of configuring an\nexpress instance similar to how the API server does it but without having\nthe chicken-egg problem of circular dependencies between the API server\nand the plugins.\n2. More detailed discussion can be seen in this other pull request in\nthe comments: https://github.com/hyperledger/cacti/pull/3169\n\nSigned-off-by: Peter Somogyvari <peter.somogyvari@accenture.com>",
+          "timestamp": "2024-04-08T22:11:33-07:00",
+          "tree_id": "7d7999e1129c7c36443db1c4f6dbd7f408183ca3",
+          "url": "https://github.com/aldousalvarez/cactus/commit/383f8528d88989b44c9763fc883c3d9ac74da21e"
+        },
+        "date": 1712642323131,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "cmd-api-server_HTTP_GET_getOpenApiSpecV1",
+            "value": 571,
+            "range": "±1.69%",
+            "unit": "ops/sec",
+            "extra": "178 samples"
+          },
+          {
+            "name": "cmd-api-server_gRPC_GetOpenApiSpecV1",
+            "value": 358,
+            "range": "±1.40%",
             "unit": "ops/sec",
             "extra": "181 samples"
           }
