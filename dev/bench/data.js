@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1712642324569,
+  "lastUpdate": 1713162010754,
   "repoUrl": "https://github.com/aldousalvarez/cactus",
   "entries": {
     "Benchmark": [
@@ -114,6 +114,44 @@ window.BENCHMARK_DATA = {
             "range": "±1.40%",
             "unit": "ops/sec",
             "extra": "181 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "9387513+outSH@users.noreply.github.com",
+            "name": "Michal Bajer",
+            "username": "outSH"
+          },
+          "distinct": true,
+          "id": "e6a6fe4ca61cc70eae808286a46642f86c8a816a",
+          "message": "build(deps): bump h2 from 0.3.24 to 0.3.26 in /packages/cactus-core-api\n\nBumps [h2](https://github.com/hyperium/h2) from 0.3.24 to 0.3.26.\n- [Release notes](https://github.com/hyperium/h2/releases)\n- [Changelog](https://github.com/hyperium/h2/blob/v0.3.26/CHANGELOG.md)\n- [Commits](https://github.com/hyperium/h2/compare/v0.3.24...v0.3.26)\n\n---\nupdated-dependencies:\n- dependency-name: h2\n  dependency-type: indirect\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+          "timestamp": "2024-04-14T07:40:06+02:00",
+          "tree_id": "e4b4c3e943c5b608a272d65b8184495669d5b0bb",
+          "url": "https://github.com/aldousalvarez/cactus/commit/e6a6fe4ca61cc70eae808286a46642f86c8a816a"
+        },
+        "date": 1713162007637,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "cmd-api-server_HTTP_GET_getOpenApiSpecV1",
+            "value": 561,
+            "range": "±1.74%",
+            "unit": "ops/sec",
+            "extra": "176 samples"
+          },
+          {
+            "name": "cmd-api-server_gRPC_GetOpenApiSpecV1",
+            "value": 351,
+            "range": "±1.24%",
+            "unit": "ops/sec",
+            "extra": "180 samples"
           }
         ]
       }
