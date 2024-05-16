@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1715850916041,
+  "lastUpdate": 1715851488303,
   "repoUrl": "https://github.com/aldousalvarez/cactus",
   "entries": {
     "Benchmark": [
@@ -107,6 +107,37 @@ window.BENCHMARK_DATA = {
             "range": "±1.40%",
             "unit": "ops/sec",
             "extra": "181 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "sandeepn.official@gmail.com",
+            "name": "Sandeep Nishad",
+            "username": "sandeepnRES"
+          },
+          "distinct": true,
+          "id": "8ff9b653ec6159a290b554152c827aaac50f8eae",
+          "message": "build: bump rustls\n\nBumps the cargo group with 1 update in the /packages/cactus-core-api directory: [rustls](https://github.com/rustls/rustls).\n\n\nUpdates `rustls` from 0.21.9 to 0.21.12\n- [Release notes](https://github.com/rustls/rustls/releases)\n- [Changelog](https://github.com/rustls/rustls/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/rustls/rustls/compare/v/0.21.9...v/0.21.12)\n\n---\nupdated-dependencies:\n- dependency-name: rustls\n  dependency-type: indirect\n  dependency-group: cargo\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+          "timestamp": "2024-05-16T12:37:05+05:30",
+          "tree_id": "f71278b12a6e305131267b3cbf525c9787e74520",
+          "url": "https://github.com/aldousalvarez/cactus/commit/8ff9b653ec6159a290b554152c827aaac50f8eae"
+        },
+        "date": 1715851486208,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "plugin-ledger-connector-besu_HTTP_GET_getOpenApiSpecV1",
+            "value": 772,
+            "range": "±2.59%",
+            "unit": "ops/sec",
+            "extra": "180 samples"
           }
         ]
       }
