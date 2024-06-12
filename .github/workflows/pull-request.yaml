@@ -1,0 +1,45 @@
+name: Check PR Description and Commit Message Parity
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize]
+
+jobs:
+  check-parity:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Get PR Information
+      id: get_pr
+      uses: octokit/request-action@v2.x
+      with:
+        route: GET /repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Get Commit Messages
+      id: get_commits
+      uses: octokit/request-action@v2.x
+      with:
+        route: GET /repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}/commits
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Check PR Description and Commit Messages
+      id: check_parity
+      run: |
+        pr_body='${{ steps.get_pr.outputs.data }}'
+        commits='${{ steps.get_commits.outputs.data }}'
+
+        pr_description=$(echo "$pr_body" | jq -r .body)
+        commit_messages=$(echo "$commits" | jq -r '.[].commit.message' | tr '\n' ' ')
+
+        if [ "$pr_description" != "$commit_messages" ]; then
+          echo "PR description and commit messages do not match."
+          exit 1
+        else
+          echo "PR description and commit messages match."
+        fi
