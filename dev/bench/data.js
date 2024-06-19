@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1718693343763,
+  "lastUpdate": 1718792466676,
   "repoUrl": "https://github.com/aldousalvarez/cactus",
   "entries": {
     "Benchmark": [
@@ -283,6 +283,37 @@ window.BENCHMARK_DATA = {
             "range": "±2.79%",
             "unit": "ops/sec",
             "extra": "180 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "peter.somogyvari@accenture.com",
+            "name": "Peter Somogyvari",
+            "username": "petermetz"
+          },
+          "committer": {
+            "email": "petermetz@users.noreply.github.com",
+            "name": "Peter Somogyvari",
+            "username": "petermetz"
+          },
+          "distinct": true,
+          "id": "fa6cb101e599158cab34824f438fe2875e80be1b",
+          "message": "docs(RELEASE_MANAGEMENT): explain auto-merge for release PRs is a no-no\n\nThe detailed explanation is here:\n\nDo not enable auto-merging on GitHub for the pull request doing the release.\nThe problem with auto-merging here is that it would modify the release commit's SHA as the\nrebase would happen on GitHub's servers where your git signing identity is not available to use\ngiven that GitHub does (should) not have access to your private key for signing.\nThe way the preserve your commit signature as valid the commit SHA must remain the same and the\nway to achieve this is to perform the pull request merging with fast forward. The merging\nensures that there is no commit SHA change and the `--ff-only` option ensures that there is no\nmerge commit to throw a wrench in the process.\n\nSigned-off-by: Peter Somogyvari <peter.somogyvari@accenture.com>",
+          "timestamp": "2024-06-19T00:05:22-07:00",
+          "tree_id": "93d83f51f62c2c03750a9fbf0b3a8a0584050e6d",
+          "url": "https://github.com/aldousalvarez/cactus/commit/fa6cb101e599158cab34824f438fe2875e80be1b"
+        },
+        "date": 1718792464868,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "plugin-ledger-connector-besu_HTTP_GET_getOpenApiSpecV1",
+            "value": 761,
+            "range": "±2.95%",
+            "unit": "ops/sec",
+            "extra": "182 samples"
           }
         ]
       }
