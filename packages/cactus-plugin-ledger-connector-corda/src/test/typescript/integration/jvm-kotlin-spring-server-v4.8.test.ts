@@ -38,7 +38,7 @@ test("BEFORE " + testCase, async (t: Test) => {
 test(testCase, async (t: Test) => {
   const ledger = new CordaTestLedger({
     imageName: "ghcr.io/hyperledger/cactus-corda-4-8-all-in-one-obligation",
-    imageVersion: "2021-08-31--feat-889",
+    imageVersion: "2023-06-28-5946399",
     logLevel,
   });
   t.ok(ledger, "CordaTestLedger v4.8 instantaited OK");
