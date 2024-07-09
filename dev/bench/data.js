@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1720512086410,
+  "lastUpdate": 1720528827090,
   "repoUrl": "https://github.com/aldousalvarez/cactus",
   "entries": {
     "Benchmark": [
@@ -352,6 +352,44 @@ window.BENCHMARK_DATA = {
             "range": "±1.52%",
             "unit": "ops/sec",
             "extra": "180 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "peter.somogyvari@accenture.com",
+            "name": "Peter Somogyvari",
+            "username": "petermetz"
+          },
+          "committer": {
+            "email": "petermetz@users.noreply.github.com",
+            "name": "Peter Somogyvari",
+            "username": "petermetz"
+          },
+          "distinct": true,
+          "id": "de0530276e26713a1a3705412821f71f12d3eada",
+          "message": "test(tools): fix Corda AIO flowdb image: JVM upgrade, flow permissions\n\n1. Also removed the party B, C and notary because none of these are present\nin the ledger definition that we get handed down from the official kotlin\nsamples Corda GitHub repository.\n2. The above change also saves on resources to have only party A which\nmakes this image boot very fast compared to the other Corda AIO images.\n3. Also refactored the corda sample app enum so that the file-system paths\ndeclared in it are matching reality instead of pointing to non-existent\ndirectories.\n\nSigned-off-by: Peter Somogyvari <peter.somogyvari@accenture.com>",
+          "timestamp": "2024-07-09T00:46:08-07:00",
+          "tree_id": "9e34aff25aa7ce66d41d56c5cdf7390e16c1e1a6",
+          "url": "https://github.com/aldousalvarez/cactus/commit/de0530276e26713a1a3705412821f71f12d3eada"
+        },
+        "date": 1720528825009,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "cmd-api-server_HTTP_GET_getOpenApiSpecV1",
+            "value": 548,
+            "range": "±1.79%",
+            "unit": "ops/sec",
+            "extra": "177 samples"
+          },
+          {
+            "name": "cmd-api-server_gRPC_GetOpenApiSpecV1",
+            "value": 355,
+            "range": "±1.38%",
+            "unit": "ops/sec",
+            "extra": "179 samples"
           }
         ]
       }
