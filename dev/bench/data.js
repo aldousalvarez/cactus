@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1718792466676,
+  "lastUpdate": 1720512086410,
   "repoUrl": "https://github.com/aldousalvarez/cactus",
   "entries": {
     "Benchmark": [
@@ -314,6 +314,44 @@ window.BENCHMARK_DATA = {
             "range": "±2.95%",
             "unit": "ops/sec",
             "extra": "182 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "peter.somogyvari@accenture.com",
+            "name": "Peter Somogyvari",
+            "username": "petermetz"
+          },
+          "committer": {
+            "email": "petermetz@users.noreply.github.com",
+            "name": "Peter Somogyvari",
+            "username": "petermetz"
+          },
+          "distinct": true,
+          "id": "997ee75725989e02b0e83a71bb06812c1f621b31",
+          "message": "docs(examples): migrate supply chain app to XDai connector\n\n1. We are in the process of decomissioning the Quorum connector and this\nis a pre-requisite to that end.\n\nDepends on #3379\n> test(test-tooling): fix BesuTestLedger start cfg: publish all ports)\n\nFixes #3272\n\nSigned-off-by: Peter Somogyvari <peter.somogyvari@accenture.com>",
+          "timestamp": "2024-07-08T10:00:45-07:00",
+          "tree_id": "917ab21bf7f842d66833db2d171e9fd9f26c2020",
+          "url": "https://github.com/aldousalvarez/cactus/commit/997ee75725989e02b0e83a71bb06812c1f621b31"
+        },
+        "date": 1720512084609,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "cmd-api-server_HTTP_GET_getOpenApiSpecV1",
+            "value": 584,
+            "range": "±1.66%",
+            "unit": "ops/sec",
+            "extra": "178 samples"
+          },
+          {
+            "name": "cmd-api-server_gRPC_GetOpenApiSpecV1",
+            "value": 360,
+            "range": "±1.52%",
+            "unit": "ops/sec",
+            "extra": "180 samples"
           }
         ]
       }
