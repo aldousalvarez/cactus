@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1720528827090,
+  "lastUpdate": 1720764715535,
   "repoUrl": "https://github.com/aldousalvarez/cactus",
   "entries": {
     "Benchmark": [
@@ -390,6 +390,44 @@ window.BENCHMARK_DATA = {
             "range": "±1.38%",
             "unit": "ops/sec",
             "extra": "179 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "peter.somogyvari@accenture.com",
+            "name": "Peter Somogyvari",
+            "username": "petermetz"
+          },
+          "committer": {
+            "email": "petermetz@users.noreply.github.com",
+            "name": "Peter Somogyvari",
+            "username": "petermetz"
+          },
+          "distinct": true,
+          "id": "5d7ec2985d2d0aed10c5f0915c6081c755bc99a7",
+          "message": "ci(connector-corda): fix insufficient disk space errors\n\nWe have the disk clean-up in the CI off by default because it takes a few\nminutes to perform and most jobs don't need it, but for Corda it seems\nnecessary because our tests started failing with the message below\n(lines wrapped to make sure we don't run over the 100 character limit\nfor the git commit message)\n\ncactus-corda-4-8-all-in-one-flowdb:2024-07-08-hotfix-1]\n[WARN] 09:48:28+0000 [Thread-2\n(ActiveMQ-server-org.apache.activemq.artemis.core.server.impl.ActiveMQServerImpl$6@11a43807)]\ncore.server. -\nAMQ222210: Free storage space is at 145.7MB of 77.9GB total. Usage rate is 99.8% which is\nbeyond the configured <max-disk-usage>. System will start blocking producers.\n\nSigned-off-by: Peter Somogyvari <peter.somogyvari@accenture.com>",
+          "timestamp": "2024-07-11T21:54:20-07:00",
+          "tree_id": "76f975422b6bbe5c840bd589b87f9afe373f5b19",
+          "url": "https://github.com/aldousalvarez/cactus/commit/5d7ec2985d2d0aed10c5f0915c6081c755bc99a7"
+        },
+        "date": 1720764713266,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "cmd-api-server_HTTP_GET_getOpenApiSpecV1",
+            "value": 584,
+            "range": "±1.64%",
+            "unit": "ops/sec",
+            "extra": "178 samples"
+          },
+          {
+            "name": "cmd-api-server_gRPC_GetOpenApiSpecV1",
+            "value": 356,
+            "range": "±1.44%",
+            "unit": "ops/sec",
+            "extra": "181 samples"
           }
         ]
       }
