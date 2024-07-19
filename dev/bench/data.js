@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1721366956541,
+  "lastUpdate": 1721367772606,
   "repoUrl": "https://github.com/aldousalvarez/cactus",
   "entries": {
     "Benchmark": [
@@ -504,6 +504,37 @@ window.BENCHMARK_DATA = {
             "range": "±1.32%",
             "unit": "ops/sec",
             "extra": "182 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "michal.bajer@fujitsu.com",
+            "name": "Michal Bajer",
+            "username": "outSH"
+          },
+          "committer": {
+            "email": "9387513+outSH@users.noreply.github.com",
+            "name": "Michal Bajer",
+            "username": "outSH"
+          },
+          "distinct": true,
+          "id": "c867a9f5ef084e4e6d7c6f5a641d1dd13f9ce233",
+          "message": "feat(persistence-fabric): rewrite the plugin\n\n- Rewrite fabric persistence plugin to match persistence ethereum\n  plugin methods and behavior.\n- Change DB schema for persistence.\n- Add tests and sample data to the new plugin. Add them to project CI.\n\nDepends on #3298\n\nSigned-off-by: Michal Bajer <michal.bajer@fujitsu.com>",
+          "timestamp": "2024-07-18T22:52:54+02:00",
+          "tree_id": "0626c0274134b1741d7760598515ec09ec8bf02e",
+          "url": "https://github.com/aldousalvarez/cactus/commit/c867a9f5ef084e4e6d7c6f5a641d1dd13f9ce233"
+        },
+        "date": 1721367770422,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "plugin-ledger-connector-besu_HTTP_GET_getOpenApiSpecV1",
+            "value": 689,
+            "range": "±3.12%",
+            "unit": "ops/sec",
+            "extra": "177 samples"
           }
         ]
       }
