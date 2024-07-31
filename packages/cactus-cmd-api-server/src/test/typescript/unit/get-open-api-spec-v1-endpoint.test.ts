@@ -127,6 +127,44 @@ describe("cmd-api-server:getOpenApiSpecV1Endpoint", () => {
     const res1 = await res1Promise;
     expect(res1.status).toEqual(200);
     expect(res1.data).toBeTruthy();
+
+    // const res1Promise = apiClient.getOpenApiSpecV1();
+    // await expect(res1Promise).resolves.toHaveProperty("data");
+    // const res1 = await res1Promise;
+
+    expect(res1.status).toEqual(200);
+
+    console.log("Response data type:", typeof res1.data);
+    console.log("Response data:", res1.data);
+
+    let openApiSpec;
+    try {
+      openApiSpec =
+        typeof res1.data === "string" ? JSON.parse(res1.data) : res1.data;
+    } catch (error) {
+      throw new Error(`Failed to parse OpenAPI spec: ${error.message}`);
+    }
+
+    expect(openApiSpec).toHaveProperty("components");
+    expect(openApiSpec.components).toHaveProperty("securitySchemes");
+
+    const securitySchemes = openApiSpec.components.securitySchemes;
+    expect(securitySchemes).toBeObject();
+
+    const expectedScopes = ["read:health", "read:metrics"];
+    const securitySchemeNames = Object.keys(securitySchemes);
+
+    securitySchemeNames.forEach((schemeName) => {
+      const scheme = securitySchemes[schemeName];
+      expect(scheme).toHaveProperty("flows");
+      const flows = scheme.flows;
+      expect(flows).toHaveProperty("authorizationCode");
+      const scopes = flows.authorizationCode.scopes;
+
+      expectedScopes.forEach((scope) => {
+        expect(scopes).toHaveProperty(scope);
+      });
+    });
   });
 
   it("gRPC - Vanilla Server & Vanilla Client - makeUnaryRequest", async () => {
