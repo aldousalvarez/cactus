@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1721989124482,
+  "lastUpdate": 1722832075619,
   "repoUrl": "https://github.com/aldousalvarez/cactus",
   "entries": {
     "Benchmark": [
@@ -671,6 +671,44 @@ window.BENCHMARK_DATA = {
             "range": "±3.37%",
             "unit": "ops/sec",
             "extra": "177 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "aldousss.alvarez@gmail.com",
+            "name": "aldousalvarez",
+            "username": "aldousalvarez"
+          },
+          "committer": {
+            "email": "petermetz@users.noreply.github.com",
+            "name": "Peter Somogyvari",
+            "username": "petermetz"
+          },
+          "distinct": true,
+          "id": "fdce6b3222fbec1c0f05db41dd5b93fbc8a8939d",
+          "message": "ci(connector-xdai): fix docker rate limit issues with openethereum image pull\n\nPrimary Changes\n----------------\n1. Migrated all the xdai connector tests to besu ledger\n   images that is being pulled from ghcr\n\nFixes #3413\n\nSigned-off-by: aldousalvarez <aldousss.alvarez@gmail.com>",
+          "timestamp": "2024-08-01T10:57:28-07:00",
+          "tree_id": "2fecc0a53a69a02fe88066a2239c35ccea8728a9",
+          "url": "https://github.com/aldousalvarez/cactus/commit/fdce6b3222fbec1c0f05db41dd5b93fbc8a8939d"
+        },
+        "date": 1722832072262,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "cmd-api-server_HTTP_GET_getOpenApiSpecV1",
+            "value": 579,
+            "range": "±1.60%",
+            "unit": "ops/sec",
+            "extra": "178 samples"
+          },
+          {
+            "name": "cmd-api-server_gRPC_GetOpenApiSpecV1",
+            "value": 353,
+            "range": "±1.21%",
+            "unit": "ops/sec",
+            "extra": "182 samples"
           }
         ]
       }
