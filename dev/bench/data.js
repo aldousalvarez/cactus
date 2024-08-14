@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1723649038009,
+  "lastUpdate": 1723649944188,
   "repoUrl": "https://github.com/aldousalvarez/cactus",
   "entries": {
     "Benchmark": [
@@ -747,6 +747,37 @@ window.BENCHMARK_DATA = {
             "range": "±1.47%",
             "unit": "ops/sec",
             "extra": "177 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "michal.bajer@fujitsu.com",
+            "name": "Michal Bajer",
+            "username": "outSH"
+          },
+          "committer": {
+            "email": "9387513+outSH@users.noreply.github.com",
+            "name": "Michal Bajer",
+            "username": "outSH"
+          },
+          "distinct": true,
+          "id": "ed915cf6f8f1388cbfdc16c954102da1e381920b",
+          "message": "feat(persistence-ethereum): add sample setup scripts, improve documentation\n\n- Fix ethereum connector openapi validation errors (mostly remove nullable\n    from reference fields).\n- Add sample setup scripts. Simple can be used to run persistence againsy\n    already running ethereum ledger, complete will setup entire environment\n    and run some basic operations to generate sample data.\n- Improve documentation to include these new scripts and how to use them, fix\n    smaller issues.\n\nSigned-off-by: Michal Bajer <michal.bajer@fujitsu.com>",
+          "timestamp": "2024-08-14T11:55:03+02:00",
+          "tree_id": "82b6afddbe65ea77abe5fc04d43e230679395ed8",
+          "url": "https://github.com/aldousalvarez/cactus/commit/ed915cf6f8f1388cbfdc16c954102da1e381920b"
+        },
+        "date": 1723649942132,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "plugin-ledger-connector-besu_HTTP_GET_getOpenApiSpecV1",
+            "value": 676,
+            "range": "±2.85%",
+            "unit": "ops/sec",
+            "extra": "176 samples"
           }
         ]
       }
