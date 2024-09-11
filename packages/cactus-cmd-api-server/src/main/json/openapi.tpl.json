@@ -9,6 +9,11 @@
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     }
   },
+  "servers": [
+  {
+    "url": "http://0.0.0.0:4000"
+  }
+],
   "components": {
     "schemas": {
       "WatchHealthcheckV1": {
@@ -76,8 +81,29 @@
         "type": "string",
         "nullable": false
       }
+    },
+    "securitySchemes": {
+      "OAuth2": {
+        "type": "oauth2",
+        "flows": {
+          "authorizationCode": {
+            "authorizationUrl": "/oauth/authorize",
+            "tokenUrl": "/oauth/token",              
+            "scopes": {
+              "read:health": "Read health information",
+              "read:metrics": "Read metrics information",
+              "read:spec": "Read OpenAPI specification"
+            }
+          }
+        }
+      }
     }
   },
+  "security": [
+    {
+      "OAuth2": []
+    }
+  ],
   "paths": {
     "/api/v1/api-server/healthcheck": {
       "get": {
@@ -101,8 +127,16 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
           }
-        }
+        },
+        "security": [
+          {
+            "OAuth2": ["read:healthcheck"]
+          }
+        ]
       }
     },
     "/api/v1/api-server/get-prometheus-exporter-metrics": {
@@ -126,8 +160,16 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
           }
-        }
+        },
+        "security": [
+          {
+            "OAuth2": ["read:metrics"]
+          }
+        ]
       }
     },
     "/api/v1/api-server/get-open-api-spec": {
@@ -151,8 +193,16 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
           }
-        }
+        },
+        "security": [
+          {
+            "OAuth2": ["read:spec"]
+          }
+        ]
       }
     }
   }
