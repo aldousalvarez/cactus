@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1726715699690,
+  "lastUpdate": 1727408492828,
   "repoUrl": "https://github.com/aldousalvarez/cactus",
   "entries": {
     "Benchmark": [
@@ -1021,6 +1021,44 @@ window.BENCHMARK_DATA = {
             "name": "cmd-api-server_gRPC_GetOpenApiSpecV1",
             "value": 670,
             "range": "±2.89%",
+            "unit": "ops/sec",
+            "extra": "181 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "sandeep.nishad1@ibm.com",
+            "name": "Sandeep Nishad",
+            "username": "sandeepnRES"
+          },
+          "committer": {
+            "email": "petermetz@users.noreply.github.com",
+            "name": "Peter Somogyvari",
+            "username": "petermetz"
+          },
+          "distinct": true,
+          "id": "c5bbb334aeb34282eb0aeaaf446f50bc785f4982",
+          "message": "fix(weaver-corda): added duplicate handling strategy in build.gradle\n\nSigned-off-by: Sandeep Nishad <sandeep.nishad1@ibm.com>",
+          "timestamp": "2024-09-25T12:00:55-07:00",
+          "tree_id": "9ebfa30f9e9f0d53b432a24bdc2bb9628dc58faf",
+          "url": "https://github.com/aldousalvarez/cactus/commit/c5bbb334aeb34282eb0aeaaf446f50bc785f4982"
+        },
+        "date": 1727408490649,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "cmd-api-server_HTTP_GET_getOpenApiSpecV1",
+            "value": 586,
+            "range": "±1.69%",
+            "unit": "ops/sec",
+            "extra": "177 samples"
+          },
+          {
+            "name": "cmd-api-server_gRPC_GetOpenApiSpecV1",
+            "value": 720,
+            "range": "±2.86%",
             "unit": "ops/sec",
             "extra": "181 samples"
           }
