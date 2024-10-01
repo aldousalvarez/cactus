@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1727409404812,
+  "lastUpdate": 1727749317725,
   "repoUrl": "https://github.com/aldousalvarez/cactus",
   "entries": {
     "Benchmark": [
@@ -1092,6 +1092,44 @@ window.BENCHMARK_DATA = {
             "range": "±2.89%",
             "unit": "ops/sec",
             "extra": "180 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "peter.somogyvari@accenture.com",
+            "name": "Peter Somogyvari",
+            "username": "petermetz"
+          },
+          "committer": {
+            "email": "petermetz@users.noreply.github.com",
+            "name": "Peter Somogyvari",
+            "username": "petermetz"
+          },
+          "distinct": true,
+          "id": "499f70302ca55c51f61f46abc3da8403c404409b",
+          "message": "test(test-cmd-api-server): jestify plugin-import-with-npm-install-version\n\nSigned-off-by: Peter Somogyvari <peter.somogyvari@accenture.com>",
+          "timestamp": "2024-09-30T08:03:18-07:00",
+          "tree_id": "8733afe1418da46c45b321ab2c1c4f04013e7bfe",
+          "url": "https://github.com/aldousalvarez/cactus/commit/499f70302ca55c51f61f46abc3da8403c404409b"
+        },
+        "date": 1727749314651,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "cmd-api-server_HTTP_GET_getOpenApiSpecV1",
+            "value": 579,
+            "range": "±1.70%",
+            "unit": "ops/sec",
+            "extra": "176 samples"
+          },
+          {
+            "name": "cmd-api-server_gRPC_GetOpenApiSpecV1",
+            "value": 708,
+            "range": "±2.93%",
+            "unit": "ops/sec",
+            "extra": "181 samples"
           }
         ]
       }
