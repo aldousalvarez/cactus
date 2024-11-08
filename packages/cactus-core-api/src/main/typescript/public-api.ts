@@ -10,6 +10,7 @@ export { IPluginConsortium } from "./plugin/consortium/i-plugin-consortium";
 export { IPluginKeychain } from "./plugin/keychain/i-plugin-keychain";
 export { isIPluginKeychain } from "./plugin/keychain/is-i-plugin-keychain";
 export { IExpressRequestHandler } from "./plugin/web-service/i-express-request-handler";
+export { IFastifyRequestHandler } from "./plugin/web-service/i-fastify-request-handler";
 
 export {
   IPluginWebService,
@@ -17,6 +18,7 @@ export {
 } from "./plugin/web-service/i-plugin-web-service";
 
 export { IWebServiceEndpoint } from "./plugin/web-service/i-web-service-endpoint";
+export { IWebServiceEndpointFastify } from "./plugin/web-service/i-web-service-endpoint-fastify";
 export { PluginFactory } from "./plugin/plugin-factory";
 
 export {

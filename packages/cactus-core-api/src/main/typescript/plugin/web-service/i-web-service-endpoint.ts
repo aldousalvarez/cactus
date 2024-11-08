@@ -2,6 +2,7 @@ import type { Express } from "express";
 import { IAsyncProvider } from "@hyperledger/cactus-common";
 import { IEndpointAuthzOptions } from "./i-endpoint-authz-options";
 import { IExpressRequestHandler } from "./i-express-request-handler";
+// import { FastifyReply } from "fastify";
 
 /**
  * Implementers of this interface are responsible for providing an API endpoint
@@ -41,4 +42,6 @@ export interface IWebServiceEndpoint {
    * Returns an
    */
   getAuthorizationOptionsProvider(): IAsyncProvider<IEndpointAuthzOptions>;
+
+  //   reply?(): FastifyReply;
 }
