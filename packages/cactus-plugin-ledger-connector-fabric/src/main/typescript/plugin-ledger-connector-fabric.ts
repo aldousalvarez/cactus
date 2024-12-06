@@ -312,7 +312,9 @@ export class PluginLedgerConnectorFabric
       const sshConfigString = sshConfigBuffer.toString("utf-8");
       this.sshConfig = JSON.parse(sshConfigString);
     } else {
-      throw new Error("Cannot instantiate Fabric connector without SSH config");
+      throw new Error(
+        "Cannot instantiate Fabric connector without SSH configs",
+      );
     }
     if (this.sshDebugOn) {
       this.sshConfig = this.enableSshDebugLogs(this.sshConfig);
